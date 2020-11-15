@@ -45,6 +45,28 @@ WHERE d.dept_name = 'Sales'
   OR d.dept_name = 'Development';
 ```
 
+There's also some use of `WHERE` to filter data:
+
+```
+SELECT
+	first_name,
+	last_name,
+	hire_date
+FROM employees
+WHERE EXTRACT(YEAR FROM CAST(hire_date AS DATE)) = 1986;
+```
+
+And `GROUP BY` to get some counts:
+
+```
+SELECT
+	last_name,
+	COUNT (last_name) AS frequency
+FROM employees
+GROUP BY last_name
+ORDER BY frequency DESC;
+```
+
 ## Bonus
 
 Having explored the data in pgAdmin, the final step was to extract some more meaning from this table containing 300,000 employees using data visualizations, the premise being it may be a fake dataset.
