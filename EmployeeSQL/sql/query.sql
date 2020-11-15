@@ -77,3 +77,11 @@ JOIN departments AS d
   ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales'
   OR d.dept_name = 'Development';
+  
+-- query 8
+SELECT
+	last_name,
+	COUNT (last_name) AS frequency
+FROM employees
+GROUP BY last_name
+ORDER BY frequency DESC;
